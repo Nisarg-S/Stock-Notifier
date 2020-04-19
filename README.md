@@ -14,6 +14,7 @@ You will also need an email to sent the notfications from and either an email or
 - SMTP_PORT
 - RECIEVER_PASSWORD
 - RECIEVER_PHONE_MAILBOX
+- DELAY
 
 After you have set up a virtual server, added the stocks you want to track to the stock.txt file and have these values you can enter the following into the console and you are good to go:
 

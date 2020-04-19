@@ -82,14 +82,14 @@ if __name__ == "__main__":
         'What is the email you want to recieve email notifications from: ')
     os.environ['RECIEVER_PHONE_MAILBOX'] = input(
         'What is the phone mailbox that you want to receive text notifications from (i.e xxxxxxxxxx@txt.att.net): ')
-
+    os.environ['DELAY'] = input("How often do you want to check for stock prices in seconds (Default is 300 seconds (5 minutes)): ")
     # program
     while True:
         if datetime.now().time() > time(9, 45, 00) and datetime.now().time() < time(16, 00):
             if check_cache():
                 cache, watch_list = parse()
             single()
-            sleep(300)  # 5 mins
+            sleep(os.getenv("DELAY", 500))  # 5 mins
         elif datetime.now().time() > time(16, 00) and datetime.today().weekday() < 4:
             eod()
             sleep(63960)  # until next open (17 hours 46 mins)
